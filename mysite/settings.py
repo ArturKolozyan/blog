@@ -28,6 +28,8 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+SITE_ID = 1
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'taggit',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.postgres',
+    'accounts.apps.AccountsConfig',
+    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +133,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # email
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# registration
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+LOGIN_URL = 'accounts/login/'
+
+# sessions
+
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+
+# media
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = 'media/'
